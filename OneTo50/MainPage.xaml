@@ -1,0 +1,53 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="OneTo50.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    xmlns:uc="clr-namespace:OneTo50.UserControls"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Style="{StaticResource BackgroundGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Border>
+                <TextBlock Text="1 to 50" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource DigitTextBox}" FontSize="120">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#005B00" Offset="0"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.35"></GradientStop>
+                            <GradientStop Color="#009800" Offset="0.5"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.55"></GradientStop>
+                            <GradientStop Color="#005B00" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical" Margin="0,40,0,0">
+                <Button Width="249" x:Name="btnStart"  Content="START" Click="Button_Click" Style="{StaticResource ShotButtonStyle}" Height="66"  />
+                <Button Width="249" x:Name="btnSound" Content="sound off" Style="{StaticResource ShotButtonStyle}" Height="66" Click="btnSound_Click" />
+                <Button Width="249" x:Name="btnViberate" Content="vibration off" Style="{StaticResource ShotButtonStyle}" Height="66" Click="btnVibrate_Click" />
+                <Button Width="249" x:Name="btnScores" Content="SCORES" Style="{StaticResource ShotButtonStyle}" Height="66" Click="btnScores_Click" />
+                <Button Width="249" x:Name="btnRate" Content="RATE game" Style="{StaticResource ShotButtonStyle}" Height="66" Click="btnRate_Click" />
+                <Button Width="249" x:Name="btnAbout" Content="ABOUT" Style="{StaticResource ShotButtonStyle}" Height="66" Click="btnAbout_Click" />
+                <Button Width="249" x:Name="btnContact" Content="Contact" Style="{StaticResource ShotButtonStyle}" Height="66" Click="btnContact_Click" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.RowSpan="3" VerticalAlignment="Bottom" x:Name="gdADV"></Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

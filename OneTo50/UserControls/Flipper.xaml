@@ -1,0 +1,174 @@
+﻿<UserControl x:Class="OneTo50.UserControls.Flipper"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    d:DesignHeight="480" d:DesignWidth="480" Loaded="UserControl_Loaded">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="1">
+        <vsm:VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="FlipGroup">
+                <VisualState x:Name="Status1">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r2" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r1" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Visible" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r3" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Status2">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r1" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r2" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Visible" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r3" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Status3">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r1" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r2" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r3" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Visible" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualStateGroup.Transitions>
+                    <VisualTransition From="Status1" To="Status2">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="r1" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                                <DiscreteDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="90">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseIn"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="r2" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                                <DiscreteDoubleKeyFrame KeyTime="00:00:00.25" Value="-90" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r3" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r1" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00.25" Value="Collapsed" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r2" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00.25" Value="Visible" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+
+                    <VisualTransition From="Status2" To="Status3">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="r2" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                                <DiscreteDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="90">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseIn"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="r3" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                                <DiscreteDoubleKeyFrame KeyTime="00:00:00.25" Value="-90" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r1" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="Collapsed" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r2" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00.25" Value="Collapsed" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="r3" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00.25" Value="Visible" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+            </VisualStateGroup>
+        </vsm:VisualStateManager.VisualStateGroups>
+        <Grid.Resources>
+            <Storyboard x:Name="sbBackground1" RepeatBehavior="Forever" AutoReverse="True" >
+                <ColorAnimation BeginTime="00:00:00" Storyboard.TargetName="r1Start" 
+                                Storyboard.TargetProperty="Color" From="#80b700" To="#00D4FF" Duration="0:0:0.500" />
+                <ColorAnimation BeginTime="00:00:00" Storyboard.TargetName="r1End" 
+                                Storyboard.TargetProperty="Color" From="#6d9f00" To="#00D4FF" Duration="0:0:0.500" />
+            </Storyboard>
+            <Storyboard x:Name="sbBackground2" RepeatBehavior="Forever" AutoReverse="True" >
+                <ColorAnimation BeginTime="00:00:00" Storyboard.TargetName="r2Start" 
+                                Storyboard.TargetProperty="Color" From="#80b700" To="#00D4FF" Duration="0:0:0.500" />
+                <ColorAnimation BeginTime="00:00:00" Storyboard.TargetName="r2End" 
+                                Storyboard.TargetProperty="Color" From="#6d9f00" To="#00D4FF" Duration="0:0:0.500" />
+            </Storyboard>
+        </Grid.Resources>
+
+        <Border x:Name="r1" MouseLeftButtonDown="blockMouseLeftButtonDown" >
+            <Border.Background>
+                <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5" >
+                    <GradientStop x:Name="r1Start" Color="#80b700" Offset="0"></GradientStop>
+                    <GradientStop x:Name="r1End" Color="#6d9f00" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Border.Background>
+            <TextBlock x:Name="tbSmall" Style="{StaticResource DigitTextBox}" Text="" Foreground="White" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Border.Projection>
+                <PlaneProjection/>
+            </Border.Projection>
+        </Border>
+        <Border x:Name="r2" MouseLeftButtonDown="blockMouseLeftButtonDown"  >
+            <Border.Background>
+                <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5" >
+                    <GradientStop x:Name="r2Start" Color="#80b700" Offset="0"></GradientStop>
+                    <GradientStop x:Name="r2End" Color="#6d9f00" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Border.Background>
+            <Border.Projection>
+                <PlaneProjection/>
+            </Border.Projection>
+            <TextBlock x:Name="tbBig" Style="{StaticResource DigitTextBox}" Text="" Foreground="White" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
+        <Border x:Name="r3">
+            <Border.Background>
+                <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5" >
+                    <GradientStop Color="#80b700" Offset="0"></GradientStop>
+                    <GradientStop Color="#6d9f00" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Border.Background>
+            <Border.Projection>
+                <PlaneProjection/>
+            </Border.Projection>
+            <TextBlock Text="" Foreground="White" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
+    </Grid>
+</UserControl>

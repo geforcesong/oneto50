@@ -1,0 +1,133 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="OneTo50.Scores"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    xmlns:uc="clr-namespace:OneTo50.UserControls"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Style="{StaticResource BackgroundGrid}">
+        <!--枢轴控件-->
+        <controls:Pivot x:Name="pvtCtr">
+            <controls:Pivot.TitleTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="1 to 50" FontSize="32" Style="{StaticResource DisplayTimer}"  >
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#005B00" Offset="0"></GradientStop>
+                                    <GradientStop Color="#007900" Offset="0.35"></GradientStop>
+                                    <GradientStop Color="#009800" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="#007900" Offset="0.55"></GradientStop>
+                                    <GradientStop Color="#005B00" Offset="1"></GradientStop>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </controls:Pivot.TitleTemplate>
+            <!--枢轴项一-->
+            <controls:PivotItem Margin="0" >
+                <controls:PivotItem.Header>
+                    <Grid>
+                        <TextBlock FontSize="70" Text="Local" Style="{StaticResource DigitTextBox}" Foreground="White" />
+                    </Grid>
+                </controls:PivotItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="No" Style="{StaticResource ListHeaderText}" />
+                        <TextBlock Grid.Column="1" Text="name" Style="{StaticResource ListHeaderText}" />
+                        <TextBlock Grid.Column="2" Text="score" Style="{StaticResource ListHeaderText}" />
+                        <TextBlock Grid.Column="3" Text="level" Style="{StaticResource ListHeaderText}" />
+                    </Grid>
+                    <ListBox Grid.Row="1" x:Name="lbScores" ItemsSource="{Binding Items, Source={StaticResource RecordViewModel}}">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="130" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding SortOrder}" Style="{StaticResource ListItemText}" />
+                                    <TextBlock Grid.Column="1" Text="{Binding UserName}" Style="{StaticResource ListItemText}" />
+                                    <TextBlock Grid.Column="2" Foreground="White" Text="{Binding Score, Converter={StaticResource ScoreFormatConverter}}" Style="{StaticResource ListItemText}" />
+                                    <uc:StarsRating HorizontalAlignment="Center" Grid.Column="3" Stars="{Binding Score, Converter={StaticResource StarLevelConverter}}" /> 
+                                    <Border Grid.Row="1" Grid.ColumnSpan="4" BorderThickness="0,0,0,1">
+                                        <TextBlock HorizontalAlignment="Right" Text="{Binding CreatedTime, Converter={StaticResource DateConverter}}" Style="{StaticResource ListItemText}" />
+                                        <Border.BorderBrush>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="#00007900" Offset="0"></GradientStop>
+                                                <GradientStop Color="#007900" Offset="0.35"></GradientStop>
+                                                <GradientStop Color="White" Offset="0.5"></GradientStop>
+                                                <GradientStop Color="#007900" Offset="0.55"></GradientStop>
+                                                <GradientStop Color="#00007900" Offset="1"></GradientStop>
+                                            </LinearGradientBrush>
+                                        </Border.BorderBrush>
+                                    </Border>
+                                </Grid>
+                                
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+            <controls:PivotItem Margin="0" >
+                <controls:PivotItem.Header>
+                    <Grid>
+                        <TextBlock FontSize="70" Text="World" Style="{StaticResource DigitTextBox}" Foreground="White" />
+                    </Grid>
+                </controls:PivotItem.Header>
+                <uc:ScoreListControl x:Name="slAll" WorldRecordType="All" />
+            </controls:PivotItem>
+            <controls:PivotItem Margin="0" >
+                <controls:PivotItem.Header>
+                    <Grid>
+                        <TextBlock FontSize="70" Text="Latest" Style="{StaticResource DigitTextBox}" Foreground="White" />
+                    </Grid>
+                </controls:PivotItem.Header>
+                <uc:ScoreListControl x:Name="slToday" WorldRecordType="Today" />
+            </controls:PivotItem>
+            <controls:PivotItem Margin="0" >
+                <controls:PivotItem.Header>
+                    <Grid>
+                        <TextBlock FontSize="70" Text="Country" Style="{StaticResource DigitTextBox}" Foreground="White" />
+                    </Grid>
+                </controls:PivotItem.Header>
+                <uc:CountryScoreList x:Name="slCountry"  />
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

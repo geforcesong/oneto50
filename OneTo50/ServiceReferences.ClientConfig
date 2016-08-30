@@ -1,0 +1,16 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="OneTo50Soap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://www.rdi-nonwoven.com/webservices/oneto50.asmx"
+                binding="basicHttpBinding" bindingConfiguration="OneTo50Soap"
+                contract="OneTo50ServiceReference.OneTo50Soap" name="OneTo50Soap" />
+        </client>
+    </system.serviceModel>
+</configuration>

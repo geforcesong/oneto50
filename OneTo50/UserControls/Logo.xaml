@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="OneTo50.UserControls.Logo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="404" d:DesignWidth="408">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PopupBackground}">
+        <Canvas>
+            <TextBlock Canvas.Left="20" Canvas.Top="-20" Text="1" FontSize="160" Style="{StaticResource DigitTextBox}">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#005B00" Offset="0"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.35"></GradientStop>
+                            <GradientStop Color="#009800" Offset="0.5"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.55"></GradientStop>
+                            <GradientStop Color="#005B00" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <TextBlock Canvas.Left="110" Canvas.Top="50" Text="to" FontSize="200" Style="{StaticResource DigitTextBox}">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#005B00" Offset="0"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.35"></GradientStop>
+                            <GradientStop Color="#009800" Offset="0.5"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.55"></GradientStop>
+                            <GradientStop Color="#005B00" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <TextBlock Canvas.Left="220" Canvas.Top="225" Text="50" FontSize="160" Style="{StaticResource DigitTextBox}">
+                <TextBlock.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#005B00" Offset="0"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.35"></GradientStop>
+                            <GradientStop Color="#009800" Offset="0.5"></GradientStop>
+                            <GradientStop Color="#007900" Offset="0.55"></GradientStop>
+                            <GradientStop Color="#005B00" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+        </Canvas>
+    </Grid>
+</UserControl>

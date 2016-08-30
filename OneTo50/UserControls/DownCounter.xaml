@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="OneTo50.UserControls.DownCounter"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="#50000000">
+        <TextBlock Opacity="0" x:Name="imgCounter1" Text="1" Style="{StaticResource DownCounterTextBox}" />
+        <TextBlock Opacity="0" x:Name="imgCounter2" Text="2" Style="{StaticResource DownCounterTextBox}" />
+        <TextBlock Opacity="0" x:Name="imgCounter3" Text="3" Style="{StaticResource DownCounterTextBox}" />
+        <TextBlock Opacity="0" x:Name="imgCounterStart" Text="go" Style="{StaticResource DownCounterTextBox}" />
+        
+        <Grid.Resources>
+            <Storyboard x:Name="sbCounterDown">
+                <!--imgCounter1-->
+                <DoubleAnimation BeginTime="0:0:0.0" Duration="0:0:0.3" From="200" To="180" Storyboard.TargetName="imgCounter3" Storyboard.TargetProperty="FontSize">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseIn" Power="3"  />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation BeginTime="0:0:0.0" Duration="0:0:0.3" From="0.6" To="1" Storyboard.TargetName="imgCounter3" Storyboard.TargetProperty="Opacity"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="imgCounter3" Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="Collapsed" />
+                </ObjectAnimationUsingKeyFrames>
+                <!--imgCounter2-->
+                <DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.3" From="200" To="180" Storyboard.TargetName="imgCounter2" Storyboard.TargetProperty="FontSize">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseIn" Power="3"  />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.3" From="0.6" To="1" Storyboard.TargetName="imgCounter2" Storyboard.TargetProperty="Opacity"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="imgCounter2" Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:1.8" Value="Collapsed" />
+                </ObjectAnimationUsingKeyFrames>
+                <!--imgCounter3-->
+                <DoubleAnimation BeginTime="0:0:2" Duration="0:0:0.3" From="200" To="180" Storyboard.TargetName="imgCounter1" Storyboard.TargetProperty="FontSize">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseIn" Power="3"  />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation BeginTime="0:0:2" Duration="0:0:0.3" From="0.6" To="1" Storyboard.TargetName="imgCounter1" Storyboard.TargetProperty="Opacity"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="imgCounter1" Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:2.8" Value="Collapsed" />
+                </ObjectAnimationUsingKeyFrames>
+                <!--imgCounter start-->
+                <DoubleAnimation BeginTime="0:0:3" Duration="0:0:0.3" From="200" To="180" Storyboard.TargetName="imgCounterStart" Storyboard.TargetProperty="FontSize">
+                    <DoubleAnimation.EasingFunction>
+                        <PowerEase EasingMode="EaseIn" Power="3"  />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation BeginTime="0:0:3" Duration="0:0:0.3" From="0.6" To="1" Storyboard.TargetName="imgCounterStart" Storyboard.TargetProperty="Opacity"/>
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="imgCounterStart" Storyboard.TargetProperty="Visibility">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:4" Value="Collapsed" />
+                </ObjectAnimationUsingKeyFrames>
+            </Storyboard>
+        </Grid.Resources>
+    </Grid>
+</UserControl>

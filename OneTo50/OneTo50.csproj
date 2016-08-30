@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{782B572A-E46F-43B9-AF41-05426B24BC3C}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OneTo50</RootNamespace>
+    <AssemblyName>OneTo50</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>OneTo50.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>OneTo50.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="SmartMad.Ads.WindowsPhone7, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="system.data.linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Servicemodel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\CountryTipInfoConverter.cs" />
+    <Compile Include="Converters\DateConverter.cs" />
+    <Compile Include="Converters\FlagImageSourceConverter.cs" />
+    <Compile Include="Converters\ScoreFormatConverter.cs" />
+    <Compile Include="Converters\StarLevelConverter.cs" />
+    <Compile Include="DataModals\CountryScore.cs" />
+    <Compile Include="DataModals\RecordModel.cs" />
+    <Compile Include="DataModals\SystemSetting.cs" />
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalDatabase\RecordDatabaseContext.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scores.xaml.cs">
+      <DependentUpon>Scores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\OneTo50ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BackgroundTileGrid.xaml.cs">
+      <DependentUpon>BackgroundTileGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CountryScoreList.xaml.cs">
+      <DependentUpon>CountryScoreList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DownCounter.xaml.cs">
+      <DependentUpon>DownCounter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FinalScore.xaml.cs">
+      <DependentUpon>FinalScore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Flipper.xaml.cs">
+      <DependentUpon>Flipper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Logo.xaml.cs">
+      <DependentUpon>Logo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NextTip.xaml.cs">
+      <DependentUpon>NextTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ScoreListControl.xaml.cs">
+      <DependentUpon>ScoreListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StarsRating.xaml.cs">
+      <DependentUpon>StarsRating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TestGameBackground.xaml.cs">
+      <DependentUpon>TestGameBackground.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TimerDisplay.xaml.cs">
+      <DependentUpon>TimerDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\Enums.cs" />
+    <Compile Include="Utility\IsolatedStorageKeys.cs" />
+    <Compile Include="Utility\IsolatedStorageManager.cs" />
+    <Compile Include="Utility\LiveTileManager.cs" />
+    <Compile Include="Utility\PopupManager.cs" />
+    <Compile Include="Utility\SmartMadADManager.cs" />
+    <Compile Include="Utility\SoundManager.cs" />
+    <Compile Include="Utility\TreeViewHelper.cs" />
+    <Compile Include="ViewModals\CountryScoreViewModel.cs" />
+    <Compile Include="ViewModals\RecordViewModel.cs" />
+    <Compile Include="ViewModals\ViewModelManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BackgroundTileGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CountryScoreList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DownCounter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FinalScore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Flipper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Logo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\NextTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ScoreListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\StarsRating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TestGameBackground.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TimerDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OneTo50ServiceReference\OneTo50.OneTo50ServiceReference.GetCountryScoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OneTo50ServiceReference\OneTo50.OneTo50ServiceReference.GetRecordsByPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OneTo50ServiceReference\OneTo50.OneTo50ServiceReference.GetTodayRecordsByPageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OneTo50ServiceReference\OneTo50.OneTo50ServiceReference.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OneTo50ServiceReference\OneTo50.OneTo50ServiceReference.UpdateScoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Resource Include="ApplicationIcon300.png" />
+    <None Include="Service References\OneTo50ServiceReference\oneto50.disco" />
+    <Resource Include="Images\LiveTileImages\TileBackground.png" />
+    <Resource Include="Images\LiveTileImages\ApplicationIcon173.png" />
+    <Content Include="lib\Microsoft.Phone.Controls.Toolkit.dll" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <Resource Include="Fonts\DIGITAL-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Res\GameBackground.png" />
+    <Resource Include="Images\Res\GreenButton.png" />
+    <Resource Include="Images\Res\GreenButtonSelected.png" />
+    <Resource Include="Images\Res\PopupBackground.png" />
+    <Resource Include="Images\other\star.png" />
+    <Content Include="Images\Nations\ad.png" />
+    <Content Include="Images\Nations\ae.png" />
+    <Content Include="Images\Nations\af.png" />
+    <Content Include="Images\Nations\ag.png" />
+    <Content Include="Images\Nations\ai.png" />
+    <Content Include="Images\Nations\al.png" />
+    <Content Include="Images\Nations\am.png" />
+    <Content Include="Images\Nations\an.png" />
+    <Content Include="Images\Nations\ao.png" />
+    <Content Include="Images\Nations\ar.png" />
+    <Content Include="Images\Nations\as.png" />
+    <Content Include="Images\Nations\at.png" />
+    <Content Include="Images\Nations\au.png" />
+    <Content Include="Images\Nations\aw.png" />
+    <Content Include="Images\Nations\ax.png" />
+    <Content Include="Images\Nations\az.png" />
+    <Content Include="Images\Nations\ba.png" />
+    <Content Include="Images\Nations\bb.png" />
+    <Content Include="Images\Nations\bd.png" />
+    <Content Include="Images\Nations\be.png" />
+    <Content Include="Images\Nations\bf.png" />
+    <Content Include="Images\Nations\bg.png" />
+    <Content Include="Images\Nations\bh.png" />
+    <Content Include="Images\Nations\bi.png" />
+    <Content Include="Images\Nations\bj.png" />
+    <Content Include="Images\Nations\bm.png" />
+    <Content Include="Images\Nations\bn.png" />
+    <Content Include="Images\Nations\bo.png" />
+    <Content Include="Images\Nations\br.png" />
+    <Content Include="Images\Nations\bs.png" />
+    <Content Include="Images\Nations\bt.png" />
+    <Content Include="Images\Nations\bv.png" />
+    <Content Include="Images\Nations\bw.png" />
+    <Content Include="Images\Nations\by.png" />
+    <Content Include="Images\Nations\bz.png" />
+    <Content Include="Images\Nations\ca.png" />
+    <Content Include="Images\Nations\catalonia.png" />
+    <Content Include="Images\Nations\cc.png" />
+    <Content Include="Images\Nations\cd.png" />
+    <Content Include="Images\Nations\cf.png" />
+    <Content Include="Images\Nations\cg.png" />
+    <Content Include="Images\Nations\ch.png" />
+    <Content Include="Images\Nations\ci.png" />
+    <Content Include="Images\Nations\ck.png" />
+    <Content Include="Images\Nations\cl.png" />
+    <Content Include="Images\Nations\cm.png" />
+    <Content Include="Images\Nations\cn.png" />
+    <Content Include="Images\Nations\co.png" />
+    <Content Include="Images\Nations\cr.png" />
+    <Content Include="Images\Nations\cs.png" />
+    <Content Include="Images\Nations\cu.png" />
+    <Content Include="Images\Nations\cv.png" />
+    <Content Include="Images\Nations\cx.png" />
+    <Content Include="Images\Nations\cy.png" />
+    <Content Include="Images\Nations\cz.png" />
+    <Content Include="Images\Nations\de.png" />
+    <Content Include="Images\Nations\dj.png" />
+    <Content Include="Images\Nations\dk.png" />
+    <Content Include="Images\Nations\dm.png" />
+    <Content Include="Images\Nations\do.png" />
+    <Content Include="Images\Nations\dz.png" />
+    <Content Include="Images\Nations\ec.png" />
+    <Content Include="Images\Nations\ee.png" />
+    <Content Include="Images\Nations\eg.png" />
+    <Content Include="Images\Nations\eh.png" />
+    <Content Include="Images\Nations\england.png" />
+    <Content Include="Images\Nations\er.png" />
+    <Content Include="Images\Nations\es.png" />
+    <Content Include="Images\Nations\et.png" />
+    <Content Include="Images\Nations\europeanunion.png" />
+    <Content Include="Images\Nations\fam.png" />
+    <Content Include="Images\Nations\fi.png" />
+    <Content Include="Images\Nations\fj.png" />
+    <Content Include="Images\Nations\fk.png" />
+    <Content Include="Images\Nations\fm.png" />
+    <Content Include="Images\Nations\fo.png" />
+    <Content Include="Images\Nations\fr.png" />
+    <Content Include="Images\Nations\ga.png" />
+    <Content Include="Images\Nations\gb.png" />
+    <Content Include="Images\Nations\gd.png" />
+    <Content Include="Images\Nations\ge.png" />
+    <Content Include="Images\Nations\gf.png" />
+    <Content Include="Images\Nations\gh.png" />
+    <Content Include="Images\Nations\gi.png" />
+    <Content Include="Images\Nations\gl.png" />
+    <Content Include="Images\Nations\gm.png" />
+    <Content Include="Images\Nations\gn.png" />
+    <Content Include="Images\Nations\gp.png" />
+    <Content Include="Images\Nations\gq.png" />
+    <Content Include="Images\Nations\gr.png" />
+    <Content Include="Images\Nations\gs.png" />
+    <Content Include="Images\Nations\gt.png" />
+    <Content Include="Images\Nations\gu.png" />
+    <Content Include="Images\Nations\gw.png" />
+    <Content Include="Images\Nations\gy.png" />
+    <Content Include="Images\Nations\hk.png" />
+    <Content Include="Images\Nations\hm.png" />
+    <Content Include="Images\Nations\hn.png" />
+    <Content Include="Images\Nations\hr.png" />
+    <Content Include="Images\Nations\ht.png" />
+    <Content Include="Images\Nations\hu.png" />
+    <Content Include="Images\Nations\id.png" />
+    <Content Include="Images\Nations\ie.png" />
+    <Content Include="Images\Nations\il.png" />
+    <Content Include="Images\Nations\in.png" />
+    <Content Include="Images\Nations\io.png" />
+    <Content Include="Images\Nations\iq.png" />
+    <Content Include="Images\Nations\ir.png" />
+    <Content Include="Images\Nations\is.png" />
+    <Content Include="Images\Nations\it.png" />
+    <Content Include="Images\Nations\jm.png" />
+    <Content Include="Images\Nations\jo.png" />
+    <Content Include="Images\Nations\jp.png" />
+    <Content Include="Images\Nations\ke.png" />
+    <Content Include="Images\Nations\kg.png" />
+    <Content Include="Images\Nations\kh.png" />
+    <Content Include="Images\Nations\ki.png" />
+    <Content Include="Images\Nations\km.png" />
+    <Content Include="Images\Nations\kn.png" />
+    <Content Include="Images\Nations\kp.png" />
+    <Content Include="Images\Nations\kr.png" />
+    <Content Include="Images\Nations\kw.png" />
+    <Content Include="Images\Nations\ky.png" />
+    <Content Include="Images\Nations\kz.png" />
+    <Content Include="Images\Nations\la.png" />
+    <Content Include="Images\Nations\lb.png" />
+    <Content Include="Images\Nations\lc.png" />
+    <Content Include="Images\Nations\li.png" />
+    <Content Include="Images\Nations\lk.png" />
+    <Content Include="Images\Nations\lr.png" />
+    <Content Include="Images\Nations\ls.png" />
+    <Content Include="Images\Nations\lt.png" />
+    <Content Include="Images\Nations\lu.png" />
+    <Content Include="Images\Nations\lv.png" />
+    <Content Include="Images\Nations\ly.png" />
+    <Content Include="Images\Nations\ma.png" />
+    <Content Include="Images\Nations\mc.png" />
+    <Content Include="Images\Nations\md.png" />
+    <Content Include="Images\Nations\me.png" />
+    <Content Include="Images\Nations\mg.png" />
+    <Content Include="Images\Nations\mh.png" />
+    <Content Include="Images\Nations\mk.png" />
+    <Content Include="Images\Nations\ml.png" />
+    <Content Include="Images\Nations\mm.png" />
+    <Content Include="Images\Nations\mn.png" />
+    <Content Include="Images\Nations\mo.png" />
+    <Content Include="Images\Nations\mp.png" />
+    <Content Include="Images\Nations\mq.png" />
+    <Content Include="Images\Nations\mr.png" />
+    <Content Include="Images\Nations\ms.png" />
+    <Content Include="Images\Nations\mt.png" />
+    <Content Include="Images\Nations\mu.png" />
+    <Content Include="Images\Nations\mv.png" />
+    <Content Include="Images\Nations\mw.png" />
+    <Content Include="Images\Nations\mx.png" />
+    <Content Include="Images\Nations\my.png" />
+    <Content Include="Images\Nations\mz.png" />
+    <Content Include="Images\Nations\na.png" />
+    <Content Include="Images\Nations\nc.png" />
+    <Content Include="Images\Nations\ne.png" />
+    <Content Include="Images\Nations\nf.png" />
+    <Content Include="Images\Nations\ng.png" />
+    <Content Include="Images\Nations\ni.png" />
+    <Content Include="Images\Nations\nl.png" />
+    <Content Include="Images\Nations\no.png" />
+    <Content Include="Images\Nations\np.png" />
+    <Content Include="Images\Nations\nr.png" />
+    <Content Include="Images\Nations\nu.png" />
+    <Content Include="Images\Nations\nz.png" />
+    <Content Include="Images\Nations\om.png" />
+    <Content Include="Images\Nations\pa.png" />
+    <Content Include="Images\Nations\pe.png" />
+    <Content Include="Images\Nations\pf.png" />
+    <Content Include="Images\Nations\pg.png" />
+    <Content Include="Images\Nations\ph.png" />
+    <Content Include="Images\Nations\pk.png" />
+    <Content Include="Images\Nations\pl.png" />
+    <Content Include="Images\Nations\pm.png" />
+    <Content Include="Images\Nations\pn.png" />
+    <Content Include="Images\Nations\pr.png" />
+    <Content Include="Images\Nations\ps.png" />
+    <Content Include="Images\Nations\pt.png" />
+    <Content Include="Images\Nations\pw.png" />
+    <Content Include="Images\Nations\py.png" />
+    <Content Include="Images\Nations\qa.png" />
+    <Content Include="Images\Nations\re.png" />
+    <Content Include="Images\Nations\ro.png" />
+    <Content Include="Images\Nations\rs.png" />
+    <Content Include="Images\Nations\ru.png" />
+    <Content Include="Images\Nations\rw.png" />
+    <Content Include="Images\Nations\sa.png" />
+    <Content Include="Images\Nations\sb.png" />
+    <Content Include="Images\Nations\sc.png" />
+    <Content Include="Images\Nations\scotland.png" />
+    <Content Include="Images\Nations\sd.png" />
+    <Content Include="Images\Nations\se.png" />
+    <Content Include="Images\Nations\sg.png" />
+    <Content Include="Images\Nations\sh.png" />
+    <Content Include="Images\Nations\si.png" />
+    <Content Include="Images\Nations\sj.png" />
+    <Content Include="Images\Nations\sk.png" />
+    <Content Include="Images\Nations\sl.png" />
+    <Content Include="Images\Nations\sm.png" />
+    <Content Include="Images\Nations\sn.png" />
+    <Content Include="Images\Nations\so.png" />
+    <Content Include="Images\Nations\sr.png" />
+    <Content Include="Images\Nations\st.png" />
+    <Content Include="Images\Nations\sv.png" />
+    <Content Include="Images\Nations\sy.png" />
+    <Content Include="Images\Nations\sz.png" />
+    <Content Include="Images\Nations\tc.png" />
+    <Content Include="Images\Nations\td.png" />
+    <Content Include="Images\Nations\tf.png" />
+    <Content Include="Images\Nations\tg.png" />
+    <Content Include="Images\Nations\th.png" />
+    <Content Include="Images\Nations\tj.png" />
+    <Content Include="Images\Nations\tk.png" />
+    <Content Include="Images\Nations\tl.png" />
+    <Content Include="Images\Nations\tm.png" />
+    <Content Include="Images\Nations\tn.png" />
+    <Content Include="Images\Nations\to.png" />
+    <Content Include="Images\Nations\tr.png" />
+    <Content Include="Images\Nations\tt.png" />
+    <Content Include="Images\Nations\tv.png" />
+    <Content Include="Images\Nations\tw.png" />
+    <Content Include="Images\Nations\tz.png" />
+    <Content Include="Images\Nations\ua.png" />
+    <Content Include="Images\Nations\ug.png" />
+    <Content Include="Images\Nations\um.png" />
+    <Content Include="Images\Nations\us.png" />
+    <Content Include="Images\Nations\uy.png" />
+    <Content Include="Images\Nations\uz.png" />
+    <Content Include="Images\Nations\va.png" />
+    <Content Include="Images\Nations\vc.png" />
+    <Content Include="Images\Nations\ve.png" />
+    <Content Include="Images\Nations\vg.png" />
+    <Content Include="Images\Nations\vi.png" />
+    <Content Include="Images\Nations\vn.png" />
+    <Content Include="Images\Nations\vu.png" />
+    <Content Include="Images\Nations\wales.png" />
+    <Content Include="Images\Nations\wf.png" />
+    <Content Include="Images\Nations\ws.png" />
+    <Content Include="Images\Nations\ye.png" />
+    <Content Include="Images\Nations\yt.png" />
+    <Content Include="Images\Nations\za.png" />
+    <Content Include="Images\Nations\zm.png" />
+    <Content Include="Images\Nations\zw.png" />
+    <Content Include="lib\SmartMad.Ads.WindowsPhone7.dll" />
+    <None Include="Service References\OneTo50ServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\OneTo50ServiceReference\configuration.svcinfo" />
+    <None Include="Service References\OneTo50ServiceReference\oneto50.wsdl" />
+    <None Include="Service References\OneTo50ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Sounds\Shot.wav" />
+    <Resource Include="Sounds\WrongTap.wav" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\OneTo50ServiceReference\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

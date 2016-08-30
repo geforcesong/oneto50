@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="OneTo50.UserControls.BackgroundTileGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="173" d:DesignWidth="173">
+    
+    <Canvas x:Name="LayoutRoot" Width="173" Height="173" >
+        <TextBlock Text="World Record:" Foreground="White" FontSize="22" />
+        <TextBlock x:Name="tbWR" Canvas.Left="10" Canvas.Top="40" Text="29.96" FontSize="60" FontWeight="Bold" />
+        <TextBlock x:Name="tbCountry" Canvas.Left="65" Canvas.Top="140" Text="Country:CN" HorizontalAlignment="Right" />
+    </Canvas>
+</UserControl>
